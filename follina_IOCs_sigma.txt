@@ -1,0 +1,18 @@
+title: Folina - MS Code Execution 0-day
+Status: experimental
+description: MD5s for Follina
+author: bmorgan
+references:
+		- https://www.ncert.gov.ph/2022/05/31/follina-a-microsoft-office-code-execution-vulnerability/
+logsource:
+  product: zeek
+  service: intel
+detection:
+  selection:
+    intel.sources|contains:
+        - '529c8f3d6d02ba996357aba535f688fc'
+        - 'f531a7c270d43656e34d578c8e71bc39'
+        - '6bcee92ab337c9130f27143cc7be5a55'
+  condition: selection and not filter
+falsepositives: -None
+level: high

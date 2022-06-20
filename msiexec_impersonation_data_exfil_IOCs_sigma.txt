@@ -1,0 +1,25 @@
+title: IOCs msiexec data exfil attack
+Status: experimental
+description: DFIR report - msiexec impersonation leads to data exfil 
+author: bmorgan
+references:
+		- https://thedfirreport.com/2022/06/06/will-the-real-msiexec-please-stand-up-exploit-leads-to-data-exfiltration/
+logsource:
+  product: zeek
+  service: intel
+detection:
+  selection:
+    intel.sources|contains:
+        - '848f7edb825813aee4c09c7f2ec71d27'
+        - '23.81.246.84'
+        - '5.239.37.78'
+        - '2.58.56.14'
+        - '185.220.101.76'
+        - '5.114.3.200'
+        - '5.113.111.4'
+        - '35.196.132.85'
+        - '8.0.26.137'
+        - '192.221.154.141'
+  condition: selection and not filter
+falsepositives: -None
+level: high

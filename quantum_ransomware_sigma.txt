@@ -1,0 +1,29 @@
+title: Quantum Ransomeware
+Status: experimental
+description: Detect Quantum Ransomeware IOCs
+author: bmorgan
+logsource:
+  product: zeek
+  service: intel
+detection:
+  selection:
+    intel.sources|contains:
+        - 'dilimoretast.com'
+        - '157.245.142.66'
+        - 'oceriesfornot.top'
+        - '138.68.42.130'
+        - '188.166.154.118'
+        - 'antnosience.com'
+		- '350f82de99b8696fea6e189fcd4ca454'
+        - 'e9ad8fae2dd8f9d12e709af20d9aefad'
+        - 'adf0907a6114c2b55349c08251efdf50'
+        - '4a6ceabb2ce1b486398c254a5503b792'
+        - 'e051009b12b37c7ee16e810c135f1fef'
+        - '350f82de99b8696fea6e189fcd4ca454'
+        - 'e9ad8fae2dd8f9d12e709af20d9aefad'
+        - 'adf0907a6114c2b55349c08251efdf50'
+        - '4a6ceabb2ce1b486398c254a5503b792'
+		- 'e051009b12b37c7ee16e810c135f1fef'
+  condition: selection and not filter
+falsepositives: -None
+level: high

@@ -1,0 +1,27 @@
+title: Emotet - New TTPs Detected in the Wild
+Status: experimental
+description: Detects IOCs related to new Emotet TTPs
+author: bmorgan
+references:
+		- https://blog.cyble.com/2022/04/27/emotet-returns-with-new-ttps-and-delivers-lnk-files-to-its-victims/
+logsource:
+  product: zeek
+  service: intel
+detection:
+  selection:
+    intel.sources|contains:
+        - '3952caf999263773be599357388159e0'
+        - '95e0286c6c38320d9673b6492f9e2284'
+        - 'd7f376892166017091187e8150e68fcc'
+        - '3952caf999263773be599357388159e0'
+        - '95e0286c6c38320d9673b6492f9e2284'
+        - 'd7f376892166017091187e8150e68fcc'
+        - 'cipro.mx'
+        - 'filmmogzivota.rs'
+        - 'creemo.pl'
+        - 'demo34.ckg.hk'
+        - 'focusmedica.in'
+        - 'colegiounamuno.es'
+  condition: selection and not filter
+falsepositives: -None
+level: high
